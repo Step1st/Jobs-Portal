@@ -47,7 +47,12 @@ class JobListView(ListView):
     paginate_by = 5
 
     def get_queryset(self):
-        return self.model.objects.unfilled()
+        # return self.model.objects.unfilled()
+        return self.model.objects.filter(
+            filled=False,
+            location__contains=self.request.GET.get("location", ""),
+            title__contains=self.request.GET.get("position", ""),
+        )
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
