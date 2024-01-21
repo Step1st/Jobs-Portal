@@ -33,7 +33,6 @@ class RegisterEmployeeView(CreateView):
         else:
             return render(request, "accounts/employee/register.html", {"form": form})
 
-
 class RegisterEmployerView(CreateView):
     model = User
     form_class = EmployerRegistrationForm

@@ -12,7 +12,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 env = environ.Env()
 
-SECRET_KEY = "@pzqp#x^+#(olu#wy(6=mi9&a8n+g&x#af#apn07@j=5oin=xb"
+SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = env("DEBUG", default=False)
 print("DEBUG: ", DEBUG)
@@ -320,3 +320,20 @@ if ENABLE_PROMETHEUS:
     MIDDLEWARE = ['django_prometheus.middleware.PrometheusBeforeMiddleware'] + MIDDLEWARE + \
                  ['django_prometheus.middleware.PrometheusAfterMiddleware']
     MIDDLEWARE.append("jobs.middlewares.CustomMiddleware")
+
+AUTH_PASSWORD_VALIDATORS = [
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    # },
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator", "OPTIONS": {"min_length": 8}},
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    # },
+    {'NAME': "accounts.validators.CustomPasswordValidator"},
+]
+
+SESSION_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = True

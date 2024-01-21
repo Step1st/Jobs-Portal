@@ -13,9 +13,9 @@
     <section class="mt-4">
         <div class="container">
             <h2 class="text-center">Choose a template for your Resume/CV</h2>
-            <a href="{% url 'resume_cv:templates' %}" class="btn btn-sm btn-danger">All Templates</a>
+            <a href="{% url 'resume_cv:templates' %}" class="btn btn-sm btn-danger" style="color: black; font-weight: 400;">All Templates</a>
             {% for category in categories %}
-                <a href="{% url 'resume_cv:templates' %}" class="btn btn-sm btn-success">{{ category.name }}</a>
+                <a href="{% url 'resume_cv:templates' %}" class="btn btn-sm btn-success" style="color: black; font-weight: 400;">{{ category.name }}</a>
             {% endfor %}
 
             <div class="row mt-2">
@@ -27,7 +27,7 @@
                                 <img src="{{ template.thumbnail.url }}"
                                      alt="{{ template.name }}"
                                      data-was-processed="true" class="">
-                                <span class="post-date badge badge-success"> Free</span>
+                                <span class="post-date badge badge-success" style="color: black; font-weight: 400;"> Free</span>
                             </a>
                             <div class="content_blog clearfix flex flex-column flex-lg-row">
                                 <div class="p-1">

@@ -16,6 +16,7 @@
                             <span class="accent">love</span>.
                         </h2>
                         <form id="job-main-form" method="get" action="{% url 'jobs:search' %}" class="job-main-form">
+                            {% csrf_token %}
                             <div class="controls">
                                 <div class="row align-items-center">
                                     <div class="col-md-5">
